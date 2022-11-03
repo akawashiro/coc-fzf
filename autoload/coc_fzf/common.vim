@@ -148,7 +148,7 @@ endfunction
 
 function s:with_preview(placeholder, custom_cmd, wrap) abort
   let wrapped_opts = {}
-  let placeholder_opt = {}
+  let placeholder_opt = {'tmux': '-p80%'}
   let preview_window_pos_size = g:coc_fzf_preview
   let preview_window_scroll_offset = '+{2}-5'
 
@@ -160,7 +160,7 @@ function s:with_preview(placeholder, custom_cmd, wrap) abort
       endif
     endif
     if !empty(a:placeholder)
-      let placeholder_opt = {'placeholder': a:placeholder}
+      let placeholder_opt = {'placeholder': a:placeholder, 'tmux': '-p80%'}
       let scroll = split(a:placeholder, ':')[1]
       let preview_window_scroll_offset = '+' . scroll . '-5'
     endif
